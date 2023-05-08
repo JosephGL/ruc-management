@@ -15,19 +15,20 @@ public class RucController {
     private final RucService rucService;
 
     @GetMapping("/validate")
+    public ResponseEntity<Boolean> validateRuc(@RequestParam(value = "ruc") String ruc) {
 
-    public ResponseEntity<String> validateRuc(@RequestParam(value = "ruc") String ruc,
-                                              @RequestParam(value = "tipo") String tipo,
-                                              @RequestParam(value = "token") String token) {
-
-        return new ResponseEntity<>(rucService.validateLegalEntity(ruc, tipo, token), HttpStatus.OK);
+        return new ResponseEntity<>(rucService.validateLegalEntity(ruc), HttpStatus.OK);
     }
 
     @PostMapping("/register")
     public ResponseEntity<Void> registerLegalEntity(@RequestBody LegalEntityDto legalEntityDto) {
-        // Lógica para registrar entidad legal
-        // ...
-
+        rucService.saveLegalEntity(legalEntityDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("/externalRegister")
+    public ResponseEntity<Void> externalRegister(@RequestParam String ruc) {
+        HttpStatus statusResponse = rucService.saveFromExternal(ruc);
+        return ResponseEntity.status(statusResponse).build();
     }
 }

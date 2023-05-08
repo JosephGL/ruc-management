@@ -1,9 +1,13 @@
 package com.joseph.rucmanagement.exception;
 
-public class LegalEntityClientException extends RuntimeException{
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-    public LegalEntityClientException(){
-        super("No ha sido posible comunicarse con el servicio");
+@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Sunat Caido")
+public class LegalEntityClientException extends RuntimeException {
+
+    public LegalEntityClientException(String message){
+        super(message);
     }
 
 }

@@ -10,7 +10,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface LegalEntityClient {
 
     @GetMapping("/validate")
-    LegalEntityDto validateLegalEntity(@RequestParam String ruc,
-                                       @RequestParam String tipo,
-                                       @RequestParam String token);
+    LegalEntityDto getLegalEntity(@RequestParam String ruc);
 }

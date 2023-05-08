@@ -36,11 +36,11 @@ public class RucServiceTest {
         legalEntityDto.setProvincia("LIMA");
         legalEntityDto.setDistrito("MIRAFLORES");
 
-        when(legalEntityClient.validateLegalEntity(ruc, tipo, token)).thenReturn(legalEntityDto);
+        when(legalEntityClient.getLegalEntity(ruc)).thenReturn(legalEntityDto);
 
-        String result = rucService.validateLegalEntity(ruc, tipo, token);
+        Boolean result = rucService.validateLegalEntity(ruc);
 
         assertNotNull(result);
-        assertEquals("Valido", result);
+        assertEquals(Boolean.TRUE, result);
     }
 }
