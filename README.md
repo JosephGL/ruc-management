@@ -1,27 +1,3 @@
-# Read Me First
-The following was discovered as part of building this project:
-
-* The original package name 'com.joseph.ruc-management' is invalid and this project uses 'com.joseph.rucmanagement' instead.
-
-# Getting Started
-
-### Reference Documentation
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.0.6/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.0.6/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/#web)
-* [Spring Data MongoDB](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/#data.nosql.mongodb)
-
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
-
 # ruc-management
 
 Este es un servicio REST que proporciona tres endpoints para validar un RUC, registrar una persona jurídica con solo su RUC y registrar una persona jurídica con todos sus datos.
@@ -100,7 +76,14 @@ Endpoint para registrar una persona jurídica con todos sus datos.
       "error": "BAD_REQUEST"
   }
   ```
-###  4. Réplica de la base de datos
+###  4. Correr localmente
+Usar el siguiente comando
+```
+mvn clean install
+mvn spring-boot:run
+```
+
+###  5. Réplica de la base de datos
 Si deseas replicar la base de datos MongoDB utilizada por el servicio ruc-management en un entorno local o remoto, puedes seguir los siguientes pasos:
 
 * Asegúrate de tener instalado MongoDB en tu sistema. Puedes descargarlo desde su página oficial.
