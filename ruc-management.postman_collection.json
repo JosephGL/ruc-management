@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "30ac2b61-92a9-481c-8b24-3cc276050664",
+		"name": "ruc-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16300884"
+	},
+	"item": [
+		{
+			"name": "Validate Ruc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/rucs/validate?ruc=20600892470",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"rucs",
+						"validate"
+					],
+					"query": [
+						{
+							"key": "ruc",
+							"value": "20600892470"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Entity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ruc\": \"20600892470\",\r\n    \"razon_social\": \"SUPERDEPORTE PLUS PERU S.A.C.\",\r\n    \"estado\": \"ACTIVO\",\r\n    \"direccion\": \"AV. LARCO 1301 301      LIMA LIMA  MIRAFLORES\",\r\n    \"ubigeo\": \"150122\",\r\n    \"departamento\": \"LIMA\",\r\n    \"provincia\": \"LIMA \",\r\n    \"distrito\": \"MIRAFLORES\",\r\n    \"tipo\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/rucs/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"rucs",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Entity Then Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/rucs/externalRegister?ruc=20521586134",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"rucs",
+						"externalRegister"
+					],
+					"query": [
+						{
+							"key": "ruc",
+							"value": "20521586134"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basePath",
+			"value": "https://api.binance.com",
+			"type": "string"
+		}
+	]
+}
