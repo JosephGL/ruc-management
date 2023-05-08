@@ -12,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class RucServiceTest {
+public class RucManagementServiceTest {
 
     @Mock
     private LegalEntityClient legalEntityClient;
 
     @InjectMocks
-    private RucService rucService;
+    private RucManagementService rucService;
 
     @Test
     void validateLegalEntityTest() {

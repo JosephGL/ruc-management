@@ -1,7 +1,7 @@
 package com.joseph.rucmanagement.controller;
 
 import com.joseph.rucmanagement.dto.LegalEntityDto;
-import com.joseph.rucmanagement.service.RucService;
+import com.joseph.rucmanagement.service.RucManagementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/rucs")
 @RequiredArgsConstructor
-public class RucController {
+public class RucManagementController {
 
-    private final RucService rucService;
+    private final RucManagementService rucService;
 
     @GetMapping("/validate")
     public ResponseEntity<Boolean> validateRuc(@RequestParam(value = "ruc") String ruc) {

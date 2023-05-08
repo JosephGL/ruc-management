@@ -1,0 +1,198 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ruc-management",
+    "description": "Microservicio que se encarga de validar Ruc's y de registrarlos en una BD MongoDB",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/validate": {
+      "get": {
+        "summary": "Validar la existencia de un ruc",
+        "parameters": [
+          {
+            "name": "ruc",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "RUC que se validará"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "Registra a una persona juridica",
+        "requestBody": {
+          "description": "Informacion de la persona juridica",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LegalEntityDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/externalRegister": {
+      "post": {
+        "summary": "Registra una persona juridica recibiendo solo un ruc",
+        "parameters": [
+          {
+            "name": "ruc",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Ruc de la persona juridica que se almacenará en la BD"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LegalEntityDto": {
+        "type": "object",
+        "properties": {
+          "ruc": {
+            "type": "string"
+          },
+          "razonSocial": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "ubigeo": {
+            "type": "string"
+          },
+          "departamento": {
+            "type": "string"
+          },
+          "provincia": {
+            "type": "string"
+          },
+          "distrito": {
+            "type": "string"
+          },
+          "tipo": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "ruc",
+          "razonSocial",
+          "estado",
+          "direccion",
+          "ubigeo",
+          "departamento",
+          "provincia",
+          "distrito",
+          "tipo"
+        ]
+      },
+      "ApiError": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

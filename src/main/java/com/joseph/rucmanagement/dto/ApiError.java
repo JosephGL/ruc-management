@@ -16,6 +16,4 @@ public class ApiError {
     private String message;
     @JsonProperty
     private String error;
-
-
 }
