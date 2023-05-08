@@ -1,0 +1,70 @@
+# Bytecode
+*.class
+
+# Dependencies
+/target/
+*.jar
+*.war
+
+# Compiled files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs
+*.log
+log/
+logs/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.idea_modules/
+*.idea/workspace.xml
+*.idea/tasks.xml
+
+# Eclipse files
+.project
+.classpath
+.settings/
+.metadata/
+bin/
+*.launch
+
+# NetBeans files
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# VSCode files
+.vscode/
+*.launch.json
+*.settings.json
+
+# Maven files
+target/
+pom.xml.*
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/extensions.xml
+.mvn/wrapper/maven-wrapper.jar
+!/.mvn/wrapper/maven-wrapper.properties
+
+# Gradle files
+.gradle/
+/build/
+*.gradle
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# Other
+*.DS_Store
